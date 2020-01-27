@@ -1,28 +1,32 @@
 #include<stdio.h>
+#define MAX 100
 
-
+//swaps two elements in array
 void swap(int *a,int*b){
     int temp=*a;
     *a=*b;
     *b=temp;
 }
+
+//implementation of bubble sort algorithm
 void Bub_sort(int *arr,int n){
 
-
        for(int j=0;j!=n;j++){
-           int count=0;
+           int count=0;                         //stores no of swaps made in one scan
            for(int i=0;(i+1)!=n;i++){
-                if(arr[i]>arr[i+1]){
+                if(arr[i]>arr[i+1]){            //compare element with its right adjacent element
                     count++;
                     swap(&arr[i+1],&arr[i]);
                 }
         }
-        if(count==0)
-           break;
+        if(count==0)                            //if no swaps ware made then break
+           break;                               //array is already sorted
 
    }
 
 }
+
+//display an arry
 void disp(int *a ,int n){
     for(int i=0 ; i!=n;i++){
         printf("%d ",a[i]);
@@ -30,7 +34,17 @@ void disp(int *a ,int n){
 }
 int main()
 {
-    int arr[]={9,8,7,6,5,4,3,2};
-    Bub_sort(arr,7);
-    disp(arr,7);
+    int n;
+    int arr[MAX];
+    printf("Input no of elements to sort : ");
+    scanf("%d",&n);
+    printf("enter your elements: \n");
+    for (int i=0;i!=n;i++){
+        printf("    :");
+        scanf("%d",&arr[i]);
+    }
+    Bub_sort(arr,n);
+    disp(arr,n);
+
+    return 0;
 }
