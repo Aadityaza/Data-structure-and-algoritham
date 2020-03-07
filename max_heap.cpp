@@ -51,7 +51,7 @@ int main()
     max_heap(arr,1,12);
     max_heap(arr,1,12);
     max_heap(arr,1,12);
-    insert(arr,100,12);
+    
     int x=2;
     for(int i=1;i!=13;i++){
         
