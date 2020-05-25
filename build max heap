@@ -1,12 +1,17 @@
 #include<iostream>
+#include<math.h>
 #define max_size 100
 using namespace std;
 
 class heap {
-    int size = 1;
+    
     int arr[max_size];
+    
+    
 public:
-
+    heap() {
+        arr[0] = 0; //stores the size of heap 
+    }
     int right(int index) {
         return index * 2 + 1;
     }
@@ -17,13 +22,13 @@ public:
         return index / 2;
     }
     void disp() {
-        for (int i = 1; i != size; i++) {
+        for (int i = 1; i <= arr[0]; i++) {
             cout << arr[i] << " ";
         }
     }
     void add(int data) {
-        arr[size] = data;
-        size++;
+        arr[0]++;
+        arr[arr[0]] = data;        
         this->max_heap();
     }
     void max_heapify(int i) {
@@ -39,8 +44,8 @@ public:
         }
     }
     void max_heap() {
-        if (size > 2) {
-            for (int i = (size / 2); i != 0; i--) {
+        if (arr[0] > 1) {
+            for (int i = floor((arr[0]+1) / 2); i != 0; i--) {
                 max_heapify(i);
             }
         }
